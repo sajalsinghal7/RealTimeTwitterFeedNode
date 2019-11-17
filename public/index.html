@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Twitter Live Feeds</title>
+  <!-- <link rel="stylesheet" href="/style/style.css"> -->
+</head>
+<body>
+  <h1>Twitter Live Feeds</h1>
+  <div id="app">
+    <div>
+      <ul>
+        <li v-for="tweet in tweets">
+            <ul>
+                    <li v-for="twt in tweet">
+                        {{ twt }}
+                    </li>
+            </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    var socket = null;
+    var app = new Vue({
+      el: '#app',
+      data: {
+        tweets: []
+      },
+      methods: {
+      },
+      created: function () {
+        socket = io();
+      },
+      mounted: function () {
+        socket.on('allTweet', function (tweet) {
+          app.tweets.push(tweet);
+        });
+      }
+    });
+  </script>
+</body>
+</html>
