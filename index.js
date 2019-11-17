@@ -36,7 +36,7 @@ var T = new Twit({
   consumer_secret:      'vKRMxB5kGhd85Esh0hNkvFLnNPFJRfCCzW5R35v58Q21UjliNK',
   access_token:         '4049924489-A41wgzQnc4Zt2UBnGTMO0E2A2YkgDwwsYbl5fkV',
   access_token_secret:  'L0TiAWUMf7VXDmecdFRZohnFd2E6z40Wd6Ec1hGD1dEzG',
-  timeout_ms:           60*1000,  // optional HTTP request timeout to apply to all requests.
+  timeout_ms:           1000,  // optional HTTP request timeout to apply to all requests.
 });
 
 // listen for requests :)
