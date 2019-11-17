@@ -14,7 +14,12 @@ io.on('connection', function(socket) {
       var tweetArray=[];
         for (let index = 0; index < data.statuses.length; index++) {
             const tweet = data.statuses[index];
-            tweetArray.push(tweet);
+            let customTweet = {
+                created_at: tweet.created_at,
+                id: tweet.id,
+                text: tweet.text
+            }
+            tweetArray.push(customTweet);
         }     
         io.emit('allTweet',tweetArray)
     })
